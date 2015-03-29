@@ -1,0 +1,17 @@
+master:
+  build: jenkins-master/
+  ports:
+    - 8080:8080
+  expose:
+    - 50000
+    - 8080
+slave1:
+  image: csanchez/jenkins-swarm-slave
+  command: java -jar /usr/share/jenkins/swarm-client-1.22-jar-with-dependencies.jar -fsroot /home/jenkins-slave -master http://master:8080 -username jenkins -password jenkins -executors 2
+  links:
+    - master
+slave2:
+  image: csanchez/jenkins-swarm-slave
+  command: java -jar /usr/share/jenkins/swarm-client-1.22-jar-with-dependencies.jar -fsroot /home/jenkins-slave -master http://master:8080 -username jenkins -password jenkins -executors 2
+  links:
+    - master
