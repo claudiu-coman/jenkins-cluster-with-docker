@@ -1,0 +1,6 @@
+jquery:1.7.2-1
+parameterized-trigger:2.26
+dashboard-view:2.9.4
+build-pipeline-plugin:1.4.7
+buildgraph-view:1.1.1
+build-flow-plugin:0.17
