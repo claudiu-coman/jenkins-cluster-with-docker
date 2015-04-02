@@ -7,11 +7,13 @@ master:
     - 8080
 slave1:
   image: csanchez/jenkins-swarm-slave
+  hostname: slave1
   command: java -jar /usr/share/jenkins/swarm-client-1.22-jar-with-dependencies.jar -fsroot /home/jenkins-slave -master http://master:8080 -username jenkins -password jenkins -executors 2
   links:
     - master
 slave2:
   image: csanchez/jenkins-swarm-slave
+  hostname: slave2
   command: java -jar /usr/share/jenkins/swarm-client-1.22-jar-with-dependencies.jar -fsroot /home/jenkins-slave -master http://master:8080 -username jenkins -password jenkins -executors 2
   links:
     - master
